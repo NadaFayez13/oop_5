@@ -102,6 +102,11 @@ namespace oop_5
 
         public abstract Shipment CopyShipment();
 
+        public Shipment ShallowCopy()
+        {
+            return (Shipment)this.MemberwiseClone();
+        }
+
         public abstract void PrintShipment();
     }
 }
