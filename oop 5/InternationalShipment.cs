@@ -65,6 +65,12 @@ namespace oop_5
         }
 
 
+        public override Shipment CopyShipment()
+        {
+            return new InternationalShipment(TrackingCode, Description, Weight, DeliveryFee, Destination, DestinationCountry, CustomsFee);
+        }
+
+
         public override void PrintShipment()
         {
             Console.WriteLine("International Shipment");

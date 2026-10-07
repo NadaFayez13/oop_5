@@ -100,6 +100,8 @@ namespace oop_5
             }
         }
 
+        public abstract Shipment CopyShipment();
+
         public abstract void PrintShipment();
     }
 }

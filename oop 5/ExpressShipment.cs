@@ -47,6 +47,12 @@ namespace oop_5
         }
 
 
+        public override Shipment CopyShipment()
+        {
+            return new ExpressShipment(TrackingCode, Description, Weight, DeliveryFee, Destination, ExtraFee);
+        }
+
+
         public override void PrintShipment()
         {
             Console.WriteLine("Express Shipment");

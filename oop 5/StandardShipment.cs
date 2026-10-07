@@ -28,6 +28,12 @@ namespace oop_5
             return EstimatedCost * 0.05m;
         }
 
+        public override Shipment CopyShipment()
+        {
+            return new StandardShipment(TrackingCode, Description, Weight, DeliveryFee, Destination);
+        }
+
+
         public override void PrintShipment()
         {
             Console.WriteLine("Standard Shipment");
