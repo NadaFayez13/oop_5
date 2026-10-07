@@ -40,7 +40,7 @@
             //Deep Copy would be safer when you want to create a copy of an object that contains mutable reference-type members,
             #endregion
 
-            #region Practical Questions    
+    
 
             #region Make sure all functionality from Assignment 04 still works
             DeliveryAddress address = new DeliveryAddress("Alexandria", "123 Main St", 21500);
@@ -116,7 +116,22 @@
             Console.WriteLine($" {isSameObject}");
             #endregion
 
+            #region Create a Shallow Copy using MemberwiseClone().
+
+            Console.WriteLine("shallow copy demonstration");
+
+            StandardShipment shallowOriginal = new StandardShipment("0133", "tablet", 1.2m, 35.0m, address);
+
+            Shipment shallowCopied = shallowOriginal.ShallowCopy();
+
+            bool isSameShipment = ReferenceEquals(shallowOriginal, shallowCopied);
+            Console.WriteLine($"{isSameShipment}"); // false cause we just copied the reference of the original object
+
+            Console.WriteLine($"Original Tracking Code : {shallowOriginal.TrackingCode}");
+            Console.WriteLine($"Copied Tracking Code   : {shallowCopied.TrackingCode}");
+
             #endregion
+
 
         }
     }
