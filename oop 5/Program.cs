@@ -132,7 +132,19 @@
 
             #endregion
 
+            #region Demonstrate that the shallow copy shares the same DeliveryAddress.
 
+            Console.WriteLine("\n shallow copy demonstration2");
+            bool isSameAddress = ReferenceEquals(shallowOriginal.Destination, shallowCopied.Destination);
+            Console.WriteLine($" {isSameAddress}"); 
+
+            Console.WriteLine($"\nBefore Address Change Original City: {shallowOriginal.Destination.City}");
+
+            shallowCopied.Destination.City = "el minia"; 
+
+            Console.WriteLine($"After Changing City via Copied Shipment : {shallowOriginal.Destination.City}");
+
+            #endregion
         }
     }
 }
