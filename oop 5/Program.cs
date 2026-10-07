@@ -145,6 +145,20 @@
             Console.WriteLine($"After Changing City via Copied Shipment : {shallowOriginal.Destination.City}");
 
             #endregion
+
+            #region Create a Deep Copy
+           
+            Console.WriteLine("deep copy demonstration");
+
+            StandardShipment deepOriginal = new StandardShipment("55", "Laptop", 2.5m, 100.0m, new DeliveryAddress("Alexandria", "fouad St", 10));
+
+            Shipment deepCopied = deepOriginal.DeepCopy();
+
+            bool isSameShipmentDeep = ReferenceEquals(deepOriginal, deepCopied);
+            Console.WriteLine($"{isSameShipmentDeep}"); 
+
+            #endregion
+
         }
     }
 }
