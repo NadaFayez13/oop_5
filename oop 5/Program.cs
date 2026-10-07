@@ -39,6 +39,65 @@
             //e) Give one situation where Deep Copy would be safer than Shallow Copy.
             //Deep Copy would be safer when you want to create a copy of an object that contains mutable reference-type members,
             #endregion
+
+            #region Practical Questions    
+
+            #region Make sure all functionality from Assignment 04 still works
+            DeliveryAddress address = new DeliveryAddress("Alexandria", "123 Main St", 21500);
+
+            StandardShipment standard = new StandardShipment("SH001", "Books", 3.0m, 50.0m, address);
+
+            ExpressShipment express = new ExpressShipment("SH002", "Mobile Phone", 1.5m, 60.0m, address, 20.0m);
+
+            InternationalShipment international = new InternationalShipment("SH003", "Laptop", 2.5m, 100.0m, address, "Canada", 150.0m);
+
+            DeliveryCenter center = new DeliveryCenter("Alexandria Hub");
+            center.AddShipment(standard);
+            center.AddShipment(express);
+            center.AddShipment(international);
+
+            Console.WriteLine("Delivery Center");
+            Console.WriteLine();
+
+            center.PrintAllShipments();
+
+            Console.WriteLine("Tracking Status");
+            Console.WriteLine();
+
+            center.PrintTrackingStatuses();
+
+            Console.WriteLine("Insurance");
+            Console.WriteLine();
+
+            Console.Write("Standard Shipment Insurance : ");
+            DeliveryReport.PrintInsurance(standard);
+
+            Console.Write("Express Shipment Insurance  : ");
+            DeliveryReport.PrintInsurance(express);
+
+            Console.Write("International Shipment Insurance : ");
+            DeliveryReport.PrintInsurance(international);
+
+            Console.WriteLine("ITrackable Array - Tracking Statuses");
+
+            ITrackable[] trackableShipments = new ITrackable[] { standard, express, international };
+
+            foreach (ITrackable trackable in trackableShipments)
+            {
+                Console.WriteLine(trackable.GetTrackingStatus());
+            }
+
+            Console.WriteLine("IInsurable Array - Insurance Values");
+
+            IInsurable[] insurableShipments = new IInsurable[] { standard, express, international };
+
+            foreach (IInsurable insurable in insurableShipments)
+            {
+                Console.WriteLine($"Insurance Value: {insurable.CalculateInsurance()} EGP");
+            }
+            #endregion
+
+            #endregion
         }
     }
 }
