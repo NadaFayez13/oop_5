@@ -155,8 +155,24 @@
             Shipment deepCopied = deepOriginal.DeepCopy();
 
             bool isSameShipmentDeep = ReferenceEquals(deepOriginal, deepCopied);
-            Console.WriteLine($"{isSameShipmentDeep}"); 
+            Console.WriteLine($"{isSameShipmentDeep}");
 
+            #endregion
+
+            #region Demonstrate that the deep copy has an independent DeliveryAddress.
+
+            Console.WriteLine("\nIndependent DeliveryAddress Demonstration");
+
+            bool isSameAddressDeep = ReferenceEquals(deepOriginal.Destination, deepCopied.Destination);
+            Console.WriteLine($"{isSameAddressDeep}"); 
+
+            Console.WriteLine($"\nBefore Address Change to Original City: {deepOriginal.Destination.City}");
+
+            deepCopied.Destination.City = "aswan";
+
+            Console.WriteLine($"After Changing City via Deep Copied Shipment:");
+            Console.WriteLine($"  Original City: {deepOriginal.Destination.City}"); 
+            Console.WriteLine($"  Copied City  : {deepCopied.Destination.City}");   
             #endregion
 
         }
