@@ -20,5 +20,10 @@ namespace oop_5
         {
             return $"{BuildingNumber} {Street} St., {City}";
         }
+
+        public DeliveryAddress DeepCopy()
+        {
+            return new DeliveryAddress(City, Street, BuildingNumber);
+        }
     }
 }

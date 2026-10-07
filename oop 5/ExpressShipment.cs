@@ -53,6 +53,13 @@ namespace oop_5
         }
 
 
+        public override Shipment DeepCopy()
+        {
+            return new ExpressShipment(TrackingCode, Description, Weight, DeliveryFee, Destination.DeepCopy(), ExtraFee);
+        }
+
+
+
         public override void PrintShipment()
         {
             Console.WriteLine("Express Shipment");

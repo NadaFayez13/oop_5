@@ -34,6 +34,13 @@ namespace oop_5
         }
 
 
+        public override Shipment DeepCopy()
+        {
+            return new StandardShipment(TrackingCode, Description, Weight, DeliveryFee, Destination.DeepCopy());
+        }
+
+
+
         public override void PrintShipment()
         {
             Console.WriteLine("Standard Shipment");

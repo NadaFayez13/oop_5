@@ -107,6 +107,9 @@ namespace oop_5
             return (Shipment)this.MemberwiseClone();
         }
 
+        public abstract Shipment DeepCopy();
+
+
         public abstract void PrintShipment();
     }
 }

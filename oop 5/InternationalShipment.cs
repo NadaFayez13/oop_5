@@ -71,6 +71,21 @@ namespace oop_5
         }
 
 
+        public override Shipment DeepCopy()
+        {
+            return new InternationalShipment(
+                TrackingCode,
+                Description,
+                Weight,
+                DeliveryFee,
+                Destination.DeepCopy(),
+                DestinationCountry,
+                CustomsFee
+            );
+        }
+
+
+
         public override void PrintShipment()
         {
             Console.WriteLine("International Shipment");
