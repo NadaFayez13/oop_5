@@ -97,7 +97,27 @@
             }
             #endregion
 
+            #region Demonstrate reference assignment between two shipment variables.
+            StandardShipment shipment1 = new StandardShipment("0021", "Book", 2.0m, 40.0m, address);
+
+            Shipment shipment2 = shipment1;
+
+            Console.WriteLine("Before Modification");
+            Console.WriteLine($"Shipment 1 Weight: {shipment1.Weight} KG");
+            Console.WriteLine($"Shipment 2 Weight: {shipment2.Weight} KG");
+
+            shipment2.UpdateWeight(5.5m);
+
+            Console.WriteLine("\n After Modifying Weight via Shipment 2");
+            Console.WriteLine($"Shipment 1 Weight: {shipment1.Weight} KG");
+            Console.WriteLine($"Shipment 2 Weight: {shipment2.Weight} KG");
+
+            bool isSameObject = ReferenceEquals(shipment1, shipment2);
+            Console.WriteLine($" {isSameObject}");
             #endregion
+
+            #endregion
+
         }
     }
 }
